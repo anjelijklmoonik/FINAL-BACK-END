@@ -4,11 +4,20 @@ const getAllSeller = async () => {
     return await prisma.seller.findMany();
 }
 
-const postSeller = async (name, address) => {
+const postSeller = async (name, address, phoneNumber) => {
     return await prisma.seller.create({
         data: {
           name,
           address,
+          phoneNumber,
+        },
+      });
+}
+
+const getByID = async (id) => {
+    return await prisma.seller.findUnique({
+        where: {
+          id
         },
       });
 }
@@ -16,7 +25,7 @@ const postSeller = async (name, address) => {
 module.exports = {
     getAllSeller,
     postSeller,
-    // getByID,
+    getByID,
     // updateStudent,
     // deleteStudent
 }

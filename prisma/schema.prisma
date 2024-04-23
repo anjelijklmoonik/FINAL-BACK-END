@@ -23,3 +23,10 @@ model Faculty {
   id   Int    @id @default(autoincrement())
   name String
 }
+
+model Seller { 
+  id      String     @id @default(uuid())
+  name    String? @db.VarChar
+  address String? @db.VarChar
+  phoneNumber String @db.VarChar
+}
