@@ -23,6 +23,7 @@ app.corsOptions = {
   origin: "http://localhost:3300",
 };
 
+//use Routers
 app.use(sellerRouter);
 app.use(buyerRouter);
 app.use(userPostRouter);
