@@ -4,7 +4,7 @@ const getAllPostingan = async () => {
     return await prisma.postingan.findMany();
 }
 
-const postPostingan = async (name, photo, caption, location, phoneNumber, status) => {
+const postPostingan = async (id, name, photo, caption, location, phoneNumber, status) => {
     return await prisma.postingan.create({
         data: {
           name,

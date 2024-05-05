@@ -1,8 +1,8 @@
-const postinganService = require ('./userPost.service')
+const categoriesService = require ('./categories.service')
 
-const getAllPostingan = async (req, res) => {
+const getAllCategories = async (req, res) => {
     try {
-        const data = await postinganService.getAllPostingan ()
+        const data = await categoriesService.getAllSeller ()
         res.status(200).json({
             status: 'success',
             data,
@@ -13,10 +13,10 @@ const getAllPostingan = async (req, res) => {
     }
 };
 
-const postPostingan = async (req, res) => {
-    const {id, name, photo, caption, location, phoneNumber, status} = req.body;
+const postCategories = async (req, res) => {
+    const {id, name} = req.body;
     try {
-        const data = await postinganService.postPostingan (id, name, photo, caption, location, phoneNumber, status)
+        const data = await categoriesService.postCategories (id, name)
         res.status(200).json({
             status: 'success',
             data,
@@ -27,10 +27,10 @@ const postPostingan = async (req, res) => {
     }
 };
 
-const getPostByID = async (req, res) => {
+const getByID = async (req, res) => {
     const {id} = req.params;
     try {
-        const data = await postinganService.getPostByID (id)
+        const data = await categoriesService.getByID (id)
         res.status(200).json({
             status: 'success',
             data,
@@ -42,7 +42,7 @@ const getPostByID = async (req, res) => {
 };
 
 module.exports = {
-    getAllPostingan,
-    postPostingan,
-    getPostByID,
+    getAllCategories,
+    postCategories,
+    getByID,
 }

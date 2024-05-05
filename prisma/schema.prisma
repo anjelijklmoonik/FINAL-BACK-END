@@ -38,6 +38,21 @@ model Buyer {
   phoneNumber String @db.VarChar
 }
 
+model Categories {
+  id   Int    @id @default(autoincrement())
+  name    String? @db.VarChar
+}
+
+model Post {
+  id          Int      @id @default(autoincrement())
+  name        String?  @db.VarChar
+  photo       Bytes?
+  caption     String?  @db.VarChar
+  location    String?  @db.VarChar
+  phoneNumber String?  @db.VarChar
+  status      String?  @db.VarChar
+}
+
 model Collect {
   id   Int    @id @default(autoincrement())
   id_user  Int
