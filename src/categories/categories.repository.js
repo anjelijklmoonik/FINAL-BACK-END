@@ -4,10 +4,9 @@ const getAllCategories = async () => {
     return await prisma.categories.findMany();
 }
 
-const postCategories = async (id, name) => {
+const postCategories = async (name) => {
     return await prisma.categories.create({
         data: {
-          id,
           name,
         },
       });

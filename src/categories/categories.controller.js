@@ -2,7 +2,7 @@ const categoriesService = require ('./categories.service')
 
 const getAllCategories = async (req, res) => {
     try {
-        const data = await categoriesService.getAllSeller ()
+        const data = await categoriesService.getAllCategories ()
         res.status(200).json({
             status: 'success',
             data,
@@ -14,9 +14,9 @@ const getAllCategories = async (req, res) => {
 };
 
 const postCategories = async (req, res) => {
-    const {id, name} = req.body;
+    const {name} = req.body;
     try {
-        const data = await categoriesService.postCategories (id, name)
+        const data = await categoriesService.postCategories (name)
         res.status(200).json({
             status: 'success',
             data,

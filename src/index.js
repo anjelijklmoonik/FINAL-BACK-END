@@ -11,6 +11,7 @@ const sellerRouter = require ('./seller/seller.routes.js')
 const buyerRouter = require ('./buyer/buyer.routes.js')
 const userPostRouter = require ('./userPost/userPost.routes.js')
 const collectRouter = require ('./collect/collect.routes.js')
+const categoriesRouter = require ('./categories/categories.routes.js')
 
 const upload = multer({ dest: "public" });
 const app = express();
@@ -28,6 +29,7 @@ app.use(sellerRouter);
 app.use(buyerRouter);
 app.use(userPostRouter);
 app.use(collectRouter);
+app.use(categoriesRouter);
 
 app.listen(port, () => {
   console.log(`Server berjalan pada http://localhost:${port}`);

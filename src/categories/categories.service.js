@@ -4,11 +4,11 @@ const getAllCategories = async () => {
     return await categoriesRepository.getAllCategories()
 }
 
-const postCategories = async (name, address, phoneNumber) => {
-    if (!name || !address || !phoneNumber) {
-        throw new Error ('Name and Adress tidak diisi')
+const postCategories = async (name) => {
+    if (!name) {
+        throw new Error ('Name tidak diisi')
     }
-    return await categoriesRepository.postCategories(name, address, phoneNumber)
+    return await categoriesRepository.postCategories(name)
 }
 
 const getByID = async (id) => {

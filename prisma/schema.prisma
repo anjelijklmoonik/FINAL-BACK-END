@@ -1,7 +1,7 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
@@ -15,8 +15,8 @@ datasource db {
 
 model Students {
   id      Int     @id(map: "students_pkey") @default(autoincrement())
-  name    String? @db.VarChar
-  address String? @db.VarChar
+  name    String @db.VarChar
+  address String @db.VarChar
 }
 
 model Faculty {
@@ -26,31 +26,30 @@ model Faculty {
 
 model Seller { 
   id   Int    @id @default(autoincrement())
-  name    String? @db.VarChar
-  address String? @db.VarChar
+  name    String @db.VarChar
+  address String @db.VarChar
   phoneNumber String @db.VarChar
 }
 
 model Buyer { 
   id   Int    @id @default(autoincrement())
-  name    String? @db.VarChar
-  address String? @db.VarChar
+  name    String @db.VarChar
+  address String @db.VarChar
   phoneNumber String @db.VarChar
 }
 
 model Categories {
   id   Int    @id @default(autoincrement())
-  name    String? @db.VarChar
+  name    String @db.VarChar
 }
 
-model Post {
-  id          Int      @id @default(autoincrement())
-  name        String?  @db.VarChar
-  photo       Bytes?
-  caption     String?  @db.VarChar
-  location    String?  @db.VarChar
-  phoneNumber String?  @db.VarChar
-  status      String?  @db.VarChar
+model userPost {
+  id  Int @id @default(autoincrement())
+  name  String @db.VarChar
+  caption String @db.VarChar
+  location  String @db.VarChar
+  phoneNumber String @db.VarChar
+  status  String @db.VarChar
 }
 
 model Collect {

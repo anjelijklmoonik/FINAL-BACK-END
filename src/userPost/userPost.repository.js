@@ -1,14 +1,13 @@
 const prisma = require ('../db');
 
 const getAllPostingan = async () => {
-    return await prisma.postingan.findMany();
+    return await prisma.userPost.findMany();
 }
 
-const postPostingan = async (id, name, photo, caption, location, phoneNumber, status) => {
-    return await prisma.postingan.create({
+const postPostingan = async (name, caption, location, phoneNumber, status) => {
+    return await prisma.userPost.create({
         data: {
           name,
-          photo,
           caption,
           location,
           phoneNumber,
@@ -18,7 +17,7 @@ const postPostingan = async (id, name, photo, caption, location, phoneNumber, st
 }
 
 const getPostByID = async (id) => {
-    return await prisma.postingan.findUnique({
+    return await prisma.userPost.findUnique({
         where: {
           id
         },

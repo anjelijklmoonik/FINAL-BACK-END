@@ -14,9 +14,9 @@ const getAllPostingan = async (req, res) => {
 };
 
 const postPostingan = async (req, res) => {
-    const {id, name, photo, caption, location, phoneNumber, status} = req.body;
+    const {name, caption, location, phoneNumber, status} = req.body;
     try {
-        const data = await postinganService.postPostingan (id, name, photo, caption, location, phoneNumber, status)
+        const data = await postinganService.postPostingan (name, caption, location, phoneNumber, status)
         res.status(200).json({
             status: 'success',
             data,
