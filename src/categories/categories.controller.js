@@ -41,8 +41,23 @@ const getByID = async (req, res) => {
     }
 };
 
+const getByName = async (req, res) => {
+    const {name} = req.params;
+    try {
+        const data = await categoriesService.getByName (name)
+        res.status(200).json({
+            status: 'success',
+            data,
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send('Internal Server Error')
+    }
+};
+
 module.exports = {
     getAllCategories,
     postCategories,
     getByID,
+    getByName,
 }

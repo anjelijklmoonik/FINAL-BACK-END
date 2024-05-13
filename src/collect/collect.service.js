@@ -15,8 +15,13 @@ const getByID = async (id) => {
     return await collectRepository.getByID(id)
 }
 
+const getByName = async (id) => {
+    return await collectRepository.getByName(id)
+}
+
 module.exports = {
     getAllCollect,
     postCollect,
     getByID,
+    getByName,
 }

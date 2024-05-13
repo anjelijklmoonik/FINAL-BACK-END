@@ -6,17 +6,30 @@ const getAllSeller = async () => {
 
 const postSeller = async (name, address, phoneNumber) => {
     if (!name || !address || !phoneNumber) {
-        throw new Error ('Name and Adress tidak diisi')
+        throw new Error ('Data tidak lengkap')
     }
     return await sellerRepository.postSeller(name, address, phoneNumber)
 }
 
-const getByID = async (id) => {
-    return await sellerRepository.getByID(id)
+const updateSellerByID = async (id, name, address, phoneNumber) => {
+    if (!name || !address || !phoneNumber) {
+        throw new Error('Data tidak lengkap');
+    }
+    return await sellerRepository.updateSellerByID(id, name, address, phoneNumber);
+  };
+
+  const deleteSellerByID = async (id) => {
+    return await sellerRepository.deleteSellerByID(id);
+};
+
+const getByName = async (name) => {
+    return await sellerRepository.getByName(name)
 }
 
 module.exports = {
     getAllSeller,
     postSeller,
-    getByID,
+    updateSellerByID,
+    deleteSellerByID,
+    getByName,
 }

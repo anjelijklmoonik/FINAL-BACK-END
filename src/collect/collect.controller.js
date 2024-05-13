@@ -27,6 +27,21 @@ const postCollect = async (req, res) => {
     }
 };
 
+const getByUser = async (req, res) => {
+    const {name} = req.params;
+    try {
+        const data = await collectService.getByUser (id_user)
+        res.status(200).json({
+            status: 'success',
+            data,
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).send('Internal Server Error')
+    }
+};
+
+
 const getByID = async (req, res) => {
     const {id} = req.params;
     try {
@@ -46,4 +61,5 @@ module.exports = {
     getAllCollect,
     postCollect,
     getByID,
+    getByUser,
 }

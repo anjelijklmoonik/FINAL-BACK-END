@@ -20,10 +20,19 @@ const getByID = async (id) => {
       });
 }
 
+const getByName = async (name) => {
+  return await prisma.categories.findMany({
+      where: {
+        name: name
+      },
+    });
+}
+
 module.exports = {
   getAllCategories,
   postCategories,
   getByID,
+  getByName,
   // updateStudent,
   // deleteStudent
 }

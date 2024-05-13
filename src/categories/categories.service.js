@@ -15,8 +15,13 @@ const getByID = async (id) => {
     return await categoriesRepository.getByID(id)
 }
 
+const getByName = async (name) => {
+    return await categoriesRepository.getByName(name)
+}
+
 module.exports = {
     getAllCategories,
     postCategories,
     getByID,
+    getByName,
 }

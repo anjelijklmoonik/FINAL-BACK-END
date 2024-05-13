@@ -27,10 +27,41 @@ const postSeller = async (req, res) => {
     }
 };
 
-const getByID = async (req, res) => {
-    const {id} = req.params;
+const updateSellerByID = async (req, res) => {
+    const { id } = req.params;
+    const { name, address, phoneNumber } = req.body;
     try {
-        const data = await sellerService.getByID (id)
+        const updateSellerByID = await sellerService.updateSellerByID(id, name, address, phoneNumber);
+        res.status(200).json({
+            status: 'Success',
+            message: 'Data berhasil diupdate',
+            data: updateSellerByID,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+const deleteSellerByID = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const deletedSeller = await sellerService.deleteSellerByID(id);
+        res.status(200).json({
+            status: 'Success',
+            message: 'Data berhasil dihapus',
+            data: deletedSeller,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+};
+
+const getByName = async (req, res) => {
+    const {name} = req.params;
+    try {
+        const data = await sellerService.getByName (name)
         res.status(200).json({
             status: 'success',
             data,
@@ -44,5 +75,7 @@ const getByID = async (req, res) => {
 module.exports = {
     getAllSeller,
     postSeller,
-    getByID,
+    updateSellerByID,
+    deleteSellerByID,
+    getByName,
 }
